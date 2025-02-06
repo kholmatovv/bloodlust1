@@ -1,16 +1,17 @@
+import os
 import asyncio
 from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ChatMemberStatus
 from aiogram.filters import Command
 from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-
+from telegram.ext import Updater
 TOKEN = "7777140690:AAFw7gZY70TGevp3eGxBCVyEBZJ79LhH_As"
-
+TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHANNELS = [
     {"id": -1002355813716, "username": "+ayCbCpVmkHFkMDEy", "title": "📢 Rasmiy Kanal 1"},
     {"id": -1002395187547, "username": "+y8kS1O3XEEpjNmFi", "title": "🔥 Yangiliklar 2"}
 ]
-
+updater = Updater(TOKEN, use_context=True)
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
